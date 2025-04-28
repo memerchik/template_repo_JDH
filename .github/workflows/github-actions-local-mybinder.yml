@@ -1,4 +1,4 @@
-name: mybinder deploy test (repo2docker)
+name: mybinder deployy test (repo2docker)
 
 on:
   push:
