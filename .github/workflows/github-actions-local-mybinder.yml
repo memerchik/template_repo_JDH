@@ -2,7 +2,7 @@ name: mybinder deployy test (repo2docker)
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, dockerfile ]
   pull_request:
 
 jobs:
@@ -12,6 +12,8 @@ jobs:
 
       - name: Check out code
         uses: actions/checkout@v3
+        with:
+          ref: dockerfile
 
       - name: Install repo2docker
         run: |
