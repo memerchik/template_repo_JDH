@@ -1,27 +1,25 @@
-# Dockerfile
-
 # 1. Base with Jupyter server
 FROM jupyter/minimal-notebook:latest
 
-# 2. Switch to root to install extra packages
+# --------
+# Use the line below instead of the one above in case you need a specific Python version to run the article.
+# --------
+# FROM jupyter/minimal-notebook:python-3.9
+
 USER root
 
-# 3. Install Python deps (replace with your own)
+# Installing Python dependencies (you can replace these with the ones you need with OR without specifying the verison as in the template below)
 RUN pip install --no-cache-dir \
-        numpy \
-        pandas \
-        matplotlib \
-        scikit-learn
-
-# 4. Copy your notebooks (and any data/code) into the image
+      numpy==1.23.5 \
+      pandas==1.4.2 \
+      matplotlib \
+      scikit-learn==1.1.2
 COPY . /home/jovyan/project
 
-# 5. Fix permissions and switch back
 RUN chown -R jovyan:users /home/jovyan/project
 USER jovyan
 
-# 6. Set the working directory inside the container
+
 WORKDIR /home/jovyan/project
 
-# 7. (Optional) Expose port if you want to run it standalone
 EXPOSE 8888
