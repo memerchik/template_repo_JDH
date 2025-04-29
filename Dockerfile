@@ -1,10 +1,10 @@
 # 1. Base with Jupyter server
-FROM jupyter/minimal-notebook:latest
+# FROM jupyter/minimal-notebook:latest
 
 # --------
 # Use the line below instead of the one above in case you need a specific Python version to run the article.
 # --------
-# FROM jupyter/minimal-notebook:python-3.9
+FROM jupyter/minimal-notebook:python-3.9
 
 USER root
 
