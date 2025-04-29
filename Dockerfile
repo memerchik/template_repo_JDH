@@ -1,14 +1,13 @@
-# 1. Base with Jupyter server
 # FROM jupyter/minimal-notebook:latest
 
-# --------
-# Use the line below instead of the one above in case you need a specific Python version to run the article.
-# --------
+
+# IMPORTANT: Specify the Python version you need your notebook to run on in the line below. If you don't know the exact version, do your best to find the best one or use the line above instead of the one below (may result errors in the future)
+
 FROM jupyter/minimal-notebook:python-3.9
 
 USER root
 
-# Installing Python dependencies (you can replace these with the ones you need with OR without specifying the verison as in the template below)
+# Installing Python dependencies (you can replace these with the ones you need with OR without specifying the verison as in the template below). It is recommended to specify versions in order to avoid errors in future
 RUN pip install --no-cache-dir \
       numpy==1.23.5 \
       pandas==1.4.2 \
